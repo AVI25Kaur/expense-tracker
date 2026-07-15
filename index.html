@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EXPENSE-TRACKER</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav>
+        <button data-view="dashboard">Dashboard</button>
+        <button data-view="add">Add Transaction</button>
+        <button data-view="history">History</button>
+        <button data-view="reports">Reports</button>
+    </nav>
+
+    <div id="dashboard-view">
+        <h2>Dashboard</h2>
+    </div>
+
+    <div id="add-view" class="hidden">
+        <h2>Add Transaction</h2>
+    </div>
+
+    <div id="history-view" class="hidden">
+        <h2>History</h2>
+    </div>
+
+    <div id="reports-view" class="hidden">
+        <h2>Reports</h2>
+    </div>
+
+    <script src="js/config.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/transactions.js"></script>
+    <script src="js/currency.js"></script>
+    <script src="js/ai.js"></script>
+    <script src="js/views.js"></script>
+    <script src="js/app.js"></script>
+
+</body>
+</html>
