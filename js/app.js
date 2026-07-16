@@ -6,6 +6,10 @@ console.log(views);
 
 navButtons.forEach(function (button) {
   button.addEventListener("click", function () {
-    console.log(button.dataset.view);
+    
+    views.forEach(function (view) {
+      view.classList.add("hidden");
+    });
+    document.getElementById(button.dataset.view + "-view").classList.remove("hidden");
   });
 });
