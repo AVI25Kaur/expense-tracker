@@ -35,5 +35,8 @@ form.addEventListener("submit", function (event) {
     description: description
   };
   console.log(transaction);
-  localStorage.setItem("transaction", JSON.stringify(transaction));
+  const saved=localStorage.getItem("transactions");
+  const transactions=saved ? JSON.parse(saved) : [];
+  transactions.push(transaction);
+  localStorage.setItem("transactions", JSON.stringify(transactions));
 });
