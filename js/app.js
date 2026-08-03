@@ -40,3 +40,17 @@ form.addEventListener("submit", function (event) {
   transactions.push(transaction);
   localStorage.setItem("transactions", JSON.stringify(transactions));
 });
+
+const historyList=document.getElementById("history-list");
+
+historyList.addEventListener("click", function (event) {
+  if (event.target.classList.contains("delete-btn")) {
+    const index = event.target.dataset.index;
+
+    const saved = localStorage.getItem("transactions");
+    const transactions = saved ? JSON.parse(saved) : [];
+    transactions.splice(index, 1);
+    localStorage.setItem("transactions", JSON.stringify(transactions));
+    renderTransactions();
+  }
+});
