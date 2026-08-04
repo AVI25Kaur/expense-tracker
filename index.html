@@ -16,6 +16,20 @@
 
     <div id="dashboard-view" class="view">
         <h2>Dashboard</h2>
+        <div class="summary-cards">
+            <div class="card">
+                <p>Total Income</p>
+                <h3 id="total-income">₹0.00</h3>
+            </div>
+            <div class="card">
+                <p>Total Expenses</p>
+                <h3 id="total-expenses">₹0.00</h3>
+            </div>
+            <div class="card">
+                <p>Net Balance</p>
+                <h3 id="net-balance">₹0.00</h3>
+            </div>
+        </div>
     </div>
 
     <div id="add-view" class="view hidden">
@@ -63,8 +77,11 @@
 
     <div id="reports-view" class="view hidden">
         <h2>Reports</h2>
+        <div style="max-width:400px; margin:20px 0;">
+        <canvas id="expenseChart"></canvas>
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
     <script src="js/config.js"></script>
     <script src="js/storage.js"></script>
     <script src="js/transactions.js"></script>
