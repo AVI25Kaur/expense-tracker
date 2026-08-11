@@ -1,3 +1,4 @@
+let expenseChart=null;
 const navButtons = document.querySelectorAll("nav button");
 console.log(navButtons);
 
@@ -12,6 +13,15 @@ navButtons.forEach(function (button) {
     });
     document.getElementById(button.dataset.view + "-view").classList.remove("hidden");
   });
+  if (button.dataset.view === "dashboard") {
+    renderDashboard();
+  }
+  if (button.dataset.view === "history") {
+    renderTransactions();
+  }
+  if (button.dataset.view === "reports") {
+    renderReports();
+  }
 });
 
 let editingIndex = null;
@@ -96,7 +106,7 @@ historyList.addEventListener("click", function (event) {
 });
 renderDashboard();
 
-let expenseChart=null;
+
 function renderReports() {
     const saved = localStorage.getItem('transactions');
     const transactions = saved ? JSON.parse(saved) : [];
@@ -133,7 +143,7 @@ function renderReports() {
       },
       options: {
         responsive: true,
-        maintainAspectRatio: true
+        maintainAspectRatio: false
       }
     });
 }
