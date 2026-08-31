@@ -593,3 +593,15 @@ nav button:focus-visible {
 }
 
 
+.currency-widget{
+    padding: 1.5 rem;
+}
+.currency-widget select
+.currency-widget input{
+    margin: 0.5rem;
+    padding: 0.5rem;
+}
+.curr-result{
+    margin-top: 1rem;
+    font-weight: bold;
+}    

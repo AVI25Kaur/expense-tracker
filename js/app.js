@@ -22,6 +22,9 @@ navButtons.forEach(function (button) {
   if (button.dataset.view === "reports") {
     renderReports();
   }
+  if (button.dataset.view === "currency") {
+    renderCurrencyWidget(document.getElementById('currency-widget'));
+  }
 });
 
 let editingIndex = null;

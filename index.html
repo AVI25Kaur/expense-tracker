@@ -12,6 +12,7 @@
         <button data-view="add">Add Transaction</button>
         <button data-view="history">History</button>
         <button data-view="reports">Reports</button>
+        <button data-view="currency">Currency Converter</button>
     </nav>
 
     <div id="dashboard-view" class="view">
@@ -83,6 +84,12 @@
         <h2>Reports</h2>
         <div style="max-width:400px; height:400px; margin:20px 0;">
         <canvas id="expenseChart" width="400" height="400"></canvas>
+    </div>
+
+    
+    <div id="currency-view" class="view hidden">
+        
+        <div id="currency-widget"></div>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
