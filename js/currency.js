@@ -7,14 +7,24 @@ async function fetchExchangeRates(baseCurrency='INR') {
         return cached;
     }
     try {
-        const response=await fetch(`https://api.frankfurter.dev/v1/latest?base=${baseCurrency}`);
+        
+        const response=await fetch(`https://api.frankfurter.dev/v1/latest?base=USD`);
         if (!response.ok) {
             throw new Error(`API error:${response.status}`);
-
         }
         const data=await response.json();
-        cacheRates(baseCurrency,data.rates);
-        return data.rates;
+        const usdRates={...data.rates, USD:1};
+        const baseRateInUsd=usdRates[baseCurrency];
+        if (!baseRateInUsd) {
+            throw new Error(`Base currency ${baseCurrency} not supported`);
+        }
+        const rates={};
+        for (const [currency, rateVsUsd] of Object.entries(usdRates)) {
+            if (currency===baseCurrency) continue;
+            rates[currency]=rateVsUsd/baseRateInUsd;
+        }
+        cacheRates(baseCurrency,rates);
+        return rates;
     } catch (err) {
         console.error('failed to fetch exchange rates:',err);
         return null;

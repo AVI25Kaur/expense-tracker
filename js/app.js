@@ -7,24 +7,35 @@ console.log(views);
 
 navButtons.forEach(function (button) {
   button.addEventListener("click", function () {
-    
+
     views.forEach(function (view) {
       view.classList.add("hidden");
     });
-    document.getElementById(button.dataset.view + "-view").classList.remove("hidden");
+
+    const selectedView = document.getElementById(
+      button.dataset.view + "-view"
+    );
+
+    selectedView.classList.remove("hidden");
+
+    if (button.dataset.view === "dashboard") {
+      renderDashboard();
+    }
+
+    if (button.dataset.view === "history") {
+      renderTransactions();
+    }
+
+    if (button.dataset.view === "reports") {
+      renderReports();
+    }
+
+    if (button.dataset.view === "currency") {
+      renderCurrencyWidget(
+        document.getElementById("currency-widget")
+      );
+    }
   });
-  if (button.dataset.view === "dashboard") {
-    renderDashboard();
-  }
-  if (button.dataset.view === "history") {
-    renderTransactions();
-  }
-  if (button.dataset.view === "reports") {
-    renderReports();
-  }
-  if (button.dataset.view === "currency") {
-    renderCurrencyWidget(document.getElementById('currency-widget'));
-  }
 });
 
 let editingIndex = null;
